@@ -1,0 +1,36 @@
+# ── Artefatos de engenharia reversa: contêm dados pessoais reais. NUNCA versionar. ──
+analise-rea/
+pagina-salva/
+*.har
+*.saz
+
+# ── Dependências e build ──
+node_modules/
+dist/
+.wrangler/
+*.tsbuildinfo
+
+# ── Segredos e variáveis de ambiente ──
+.dev.vars
+.dev.vars.*
+.env
+.env*
+!.env.example
+
+# ── Backups exportados pelo app (dados financeiros) ──
+mydashplan-backup-*.json
+
+# ── Logs ──
+*.log
+npm-debug.log*
+
+# ── Sistema operacional / editores ──
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+*.swp
+*~
+.vscode/*
+!.vscode/extensions.json
+.idea/

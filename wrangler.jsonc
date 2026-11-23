@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mydashplan",
+  // API Hono; os arquivos estáticos (build do Vite) são servidos pelo binding de Static Assets.
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-11-20",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mydashplan",
+      // Local: qualquer UUID serve. Para deploy: `npx wrangler d1 create mydashplan` e cole o id aqui.
+      "database_id": "00000000-0000-4000-8000-000000000001",
+      "migrations_dir": "migrations",
+      // Só arquivos numerados são migrações; seed_demo.sql fica fora.
+      "migrations_pattern": "migrations/[0-9][0-9][0-9][0-9]_*.sql"
+    }
+  ],
+  "observability": { "enabled": true }
+}
